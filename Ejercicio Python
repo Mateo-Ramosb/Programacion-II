@@ -1,37 +1,27 @@
-Puthon:                                                                                       from datetime import datetime
-
 class Clientes:
-    def __init__(self, nombre, apellido, cedula, correo, telefono, direccion, fecha_nacimiento):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.cedula = cedula
-        self.correo = correo
-        self.telefono = telefono
-        self.direccion = direccion
-        self.fecha_nacimiento = fecha_nacimiento
-            
-        
-    def datos(self):
-        return {
-            "Cedula": self.cedula,
-            "Nombre": self.nombre,
-            "Apellido": self.apellido,
-            "Telefono": self.telefono,
-            "Correo": self.correo,
-            "Direccion": self.direccion,
-            "Fecha de nacimiento": self.fecha_nacimiento,
-        }
+    def __init__(cliente, cedula: str, nombre: str, apellido: str, telefono: str, correo: str, direccion: str, fecha_nacimiento: str):
+        cliente.cedula = cedula
+        cliente.nombre = nombre
+        cliente.apellido = apellido
+        cliente.telefono = telefono
+        cliente.correo = correo
+        cliente.direccion = direccion
+        cliente.fecha_nacimiento = fecha_nacimiento
     
-    def calcularEdad(self):
-        añoNacimiento = int(self.fecha_nacimiento[:4])
-        añoNacimiento_Actual = datetime.now().year
-        return añoNacimiento_Actual - añoNacimiento
+    def obtener_datos(cliente) -> tuple:
+        return cliente.cedula, cliente.nombre, cliente.apellido, cliente.telefono, cliente.correo, cliente.direccion, cliente.fecha_nacimiento
     
-    def mensaje(self):
-        edad = self.calcularEdad() 
-        print(f"Mi nombre es {self.nombre} {self.apellido} vivo en {self.direccion} y tengo {edad} años de edad.")
-        
-        
-Mateo = Clientes("Mateo", "Ramos Baena", 11264213 ,"mateo.ramosbaena@unitecnar.edu.co", "4125728885", "Campestre", "2000/07/04") 
+    def calcular_edad(cliente) -> int:
+        fecha_nacimiento = cliente.fecha_nacimiento
+        anio_nacimiento = int(fecha_nacimiento[:4])  
+        anio_actual = 2024  
+        return anio_actual - anio_nacimiento
+    
+    def presentar_cliente(cliente) -> str:
+        return "Mi nombre es " + cliente.nombre + " " + cliente.apellido + " y vivo en " + cliente.direccion + " y tengo " + str(cliente.calcular_edad()) + " años de edad."
 
-Mateo.mensaje()
+
+cliente1 = Clientes("1133455564", "lucas", "nuñez", "3005432567", "lucasa@gmai1.com", "Calle 44b, Ciudad", "1994/05/16")
+
+
+print(cliente1.presentar_cliente())
