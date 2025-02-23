@@ -21,7 +21,7 @@ class Clientes:
         return "Mi nombre es " + cliente.nombre + " " + cliente.apellido + " y vivo en " + cliente.direccion + " y tengo " + str(cliente.calcular_edad()) + " años de edad."
 
 
-cliente1 = Clientes("1133455564", "lucas", "nuñez", "3005432567", "lucasa@gmai1.com", "Calle 44b, Ciudad", "1994/05/16")
+cliente1 = Clientes("2239162658", "Mateo", "Ramos", "4125788885", "Mateorb@gmail.com", "Calle 33A, Cartagena", "2000/05/12")
 
 
 print(cliente1.presentar_cliente())
